@@ -1,6 +1,8 @@
-title:  "GitHub Pages 블로그와 검색 엔진 #2 (Google Search Console)"
+theme: jekyll-theme-minimal
+title: Octocat's homepage
+description: Bookmark this to keep an eye on my project updates!
 excerpt: "GitHub Pages 블로그를 검색 엔진에 노출"
-  
+
 categories:
   - GitHub Pages
 tags:
