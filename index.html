@@ -1,11 +1,238 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>My Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Research Portfolio</title>
+  <meta name="description" content="Research-oriented portfolio website" />
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --panel: #111419;
+      --muted: #94a3b8;
+      --text: #e5e7eb;
+      --accent: #60a5fa;
+      --accent-2: #34d399;
+      --border: #1f2937;
+      --radius: 14px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--text); background: radial-gradient(1200px 600px at 80% -10%, #0f172a, #0b0d10 50%);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Apple SD Gothic Neo, "Malgun Gothic", sans-serif;
+      line-height: 1.65;
+    }
+
+    /* Header */
+    .topbar {
+      position: sticky; top: 0; z-index: 20; backdrop-filter: saturate(140%) blur(6px);
+      background: rgba(11,13,16,.7); border-bottom: 1px solid var(--border);
+    }
+    .topwrap { display: flex; align-items: center; gap: 18px; padding: 14px 22px; max-width: 1200px; margin: 0 auto; }
+    .brand { font-weight: 700; letter-spacing:.2px; }
+    .brand a { color: white; text-decoration: none; }
+
+    nav.primary { margin-left: auto; display: flex; gap: 14px; flex-wrap: wrap; }
+    nav.primary a { color: var(--muted); text-decoration: none; padding: 8px 12px; border-radius: 10px; }
+    nav.primary a:hover { background: #0f172a; color: #c7d2fe; }
+
+    .container { max-width: 1200px; margin: 28px auto; padding: 0 22px; display: grid; grid-template-columns: 260px 1fr; gap: 28px; }
+
+    /* Sidebar */
+    .sidebar { position: sticky; top: 68px; height: max-content; }
+    .card { background: linear-gradient(180deg, #111419, #0f1318); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .toc { padding: 16px; }
+    .toc h3 { margin: 4px 0 10px; font-size: 14px; color: #cbd5e1; font-weight: 700; letter-spacing:.3px; }
+    .toc a { display:block; color: var(--muted); text-decoration: none; padding: 8px 10px; border-radius: 8px; font-size: 14px; }
+    .toc a:hover { color: #e2e8f0; background: #0f172a; }
+
+    /* Content */
+    .content { display: grid; gap: 22px; }
+    .hero { padding: 26px; display: grid; gap: 12px; }
+    .hero h1 { margin: 0; font-size: clamp(28px, 4vw, 42px); line-height: 1.15; }
+    .hero p { color: var(--muted); margin: 6px 0 0; }
+
+    .section { padding: 22px 22px 6px; }
+    .section h2 { margin: 0 0 12px; font-size: 22px; }
+    .section p.lead { color: var(--muted); margin-top: 0; }
+
+    /* Research grid */
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    @media (max-width: 900px) { .container { grid-template-columns: 1fr; } .grid { grid-template-columns: 1fr; } .sidebar{ position: static; } }
+
+    .item { overflow: hidden; display: grid; grid-template-columns: 190px 1fr; gap: 18px; padding: 14px; border-radius: 12px; border: 1px solid var(--border); background: #0b0f14; }
+    .thumb { aspect-ratio: 16/10; border-radius: 10px; background: linear-gradient(135deg, #0e1726 20%, #0b1020 100%); border: 1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size: 13px; color:#94a3b8; }
+    .item h3 { margin: 2px 0 8px; font-size: 18px; }
+    .meta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+    .tag { font-size: 12px; padding: 4px 8px; border-radius: 999px; background: rgba(96,165,250,.12); border: 1px solid rgba(96,165,250,.25); color: #cfe3ff; }
+    .tag.g { background: rgba(52,211,153,.12); border-color: rgba(52,211,153,.25); color: #cbf1e2; }
+
+    .actions { display: flex; gap: 10px; margin-top: 10px; }
+    .btn { display:inline-flex; align-items:center; gap:8px; text-decoration:none; padding:8px 10px; font-size: 14px; border-radius: 10px; border:1px solid var(--border); color:#e5e7eb; background:#0f1318; }
+    .btn:hover { border-color:#233142; background:#0f172a; }
+
+    /* Prev/Next in detail pages */
+    .prevnext { display:flex; justify-content: space-between; gap:12px; margin-top: 18px; }
+
+    /* Footer */
+    footer { max-width: 1200px; margin: 32px auto 60px; padding: 0 22px; color: #94a3b8; }
+    footer .footwrap { border-top:1px solid var(--border); padding-top: 18px; display:flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+  </style>
 </head>
 <body>
-  <h1>안녕하세요! wjdqjawns의 포트폴리오 🚀</h1>
-  <p>첫 GitHub Pages 웹사이트입니다.</p>
-</body>
-</html>
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="topwrap">
+      <div class="brand"><a href="#top">My Research Portfolio</a></div>
+      <nav class="primary">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <!-- Sidebar TOC -->
+    <aside class="sidebar">
+      <div class="card toc">
+        <h3>On this page</h3>
+        <a href="#about">About</a>
+        <a href="#research">Research Overview</a>
+        <a href="#electrical-design">Electrical Design</a>
+        <a href="#mechanical-design">Mechanical Design</a>
+        <a href="#embedded-systems">Embedded Systems</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </aside>
+
+    <!-- Content -->
+    <section class="content">
+      <section id="about" class="card hero">
+        <h1>안녕하세요, 정범준의 포트폴리오입니다</h1>
+        <p>로보틱스/임베디드/제어에 관심이 있으며, STM32 + FreeRTOS, 자율주행(Perception/Planning/Control), EGSE 개발 경험을 정리합니다.</p>
+      </section>
+
+      <section id="research" class="card section">
+        <h2>Research Overview</h2>
+        <p class="lead">하드웨어 플랫폼과 제어·지능형 시스템 연구를 정리합니다. 각 항목을 클릭하면 상세 섹션으로 이동합니다.</p>
+        <div class="grid">
+          <!-- Card 1 -->
+          <article class="item">
+            <div class="thumb">이미지 넣기: images/electrical.jpg</div>
+            <div>
+              <h3><a href="#electrical-design" class="btn">Electrical Design →</a></h3>
+              <p>전원 분배, 노이즈 대책, 인터페이스 회로(USB/CAN/UART) 및 보드 아키텍처.</p>
+              <div class="meta">
+                <span class="tag">PCB</span>
+                <span class="tag g">Power</span>
+                <span class="tag">EMI</span>
+              </div>
+            </div>
+          </article>
+          <!-- Card 2 -->
+          <article class="item">
+            <div class="thumb">이미지 넣기: images/mechanical.jpg</div>
+            <div>
+              <h3><a href="#mechanical-design" class="btn">Mechanical Design →</a></h3>
+              <p>구조/열 설계, 경량화, 진동/열 해석 및 시험 절차.</p>
+              <div class="meta">
+                <span class="tag g">Thermal</span>
+                <span class="tag">Vibration</span>
+                <span class="tag">CAD</span>
+              </div>
+            </div>
+          </article>
+          <!-- Card 3 -->
+          <article class="item">
+            <div class="thumb">이미지 넣기: images/embedded.jpg</div>
+            <div>
+              <h3><a href="#embedded-systems" class="btn">Embedded Systems →</a></h3>
+              <p>STM32 + FreeRTOS, USB CDC, CAN, UART 멀티 인터페이스 릴레이 및 메시지 라우팅.</p>
+              <div class="meta">
+                <span class="tag">FreeRTOS</span>
+                <span class="tag g">STM32</span>
+                <span class="tag">EGSE</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Detail Section: Electrical Design -->
+      <section id="electrical-design" class="card section">
+        <h2>Electrical Design</h2>
+        <p class="lead">전원 트리(USB-C/5V/12V), 노이즈 억제, 보호회로(TVS, 폴리퓨즈), 인터페이스(USB, CAN, UART) 보드 설계 노트.</p>
+        <div class="grid">
+          <figure class="item">
+            <div class="thumb">이미지: images/power-tree.png</div>
+            <figcaption>
+              <h3>Power Distribution</h3>
+              <p>전원 입력 다중화(USB + 벽전원), 보호/필터 네트워크, 그라운드 분리 전략.</p>
+              <div class="actions">
+                <a class="btn" href="#mechanical-design">이전 섹션</a>
+                <a class="btn" href="#embedded-systems">다음 섹션</a>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Detail Section: Mechanical Design -->
+      <section id="mechanical-design" class="card section">
+        <h2>Mechanical Design</h2>
+        <p class="lead">열/진동 요구사항에 기반한 섀시 및 방열 구조, 시험 계획/리포트 샘플.</p>
+        <div class="grid">
+          <figure class="item">
+            <div class="thumb">이미지: images/thermal-sim.png</div>
+            <figcaption>
+              <h3>Thermal/Vibration</h3>
+              <p>히트싱크, 서멀패드, 고정 하드웨어 및 공진 회피 설계 노트.</p>
+              <div class="actions">
+                <a class="btn" href="#research">목록으로</a>
+                <a class="btn" href="#electrical-design">Electrical로 이동</a>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Detail Section: Embedded Systems -->
+      <section id="embedded-systems" class="card section">
+        <h2>Embedded Systems</h2>
+        <p class="lead">USB CDC, CAN, UART 멀티 인터페이스 릴레이, FreeRTOS 메시지 버퍼/세마포어 설계.</p>
+        <div class="grid">
+          <figure class="item">
+            <div class="thumb">이미지: images/egse-block.png</div>
+            <figcaption>
+              <h3>EGSE Communication Relay</h3>
+              <p>Tx/Rx 태스크, 라우팅 테이블, ACK/CRC, 시간 동기 설계.</p>
+              <div class="actions">
+                <a class="btn" href="#electrical-design">이전 섹션</a>
+                <a class="btn" href="#publications">다음: Publications</a>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="publications" class="card section">
+        <h2>Publications</h2>
+        <p class="lead">(예시) BibTeX/링크/DOI를 여기에 정리합니다.</p>
+        <ul>
+          <li>[2024] The Role of Wearable Devices in Chronic Disease Monitoring and Patient Care (Cureus)</li>
+          <li>[2023] EGSE Communication Relay for Small Satellites</li>
+        </ul>
+      </section>
+
+      <section id="contact" class="card section">
+        <h2>Contact</h2>
+        <p class="lead">이메일: <a href="mailto:you@example.com">you@example.com</a> · GitHub: <a href="https://github.com/yourid">github.com/yourid</a></p>
+      </section>
+    </section>
+  </main>
