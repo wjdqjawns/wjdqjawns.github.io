@@ -1,0 +1,304 @@
+:root{
+  --bg:#0b0d10;
+  --bg2:#07090c;
+  --panel:#0f1318;
+  --panel2:#0c1015;
+  --text:#e5e7eb;
+  --muted:#9aa4b2;
+  --muted2:#748094;
+  --border:#1f2937;
+  --accent:#60a5fa;
+  --accent2:#34d399;
+
+  --radius:16px;
+  --shadow:0 14px 40px rgba(0,0,0,.42);
+
+  --max: 1040px;
+  --pad: 22px;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  color:var(--text);
+  background:
+    radial-gradient(900px 500px at 70% -10%, rgba(96,165,250,.22), transparent 60%),
+    radial-gradient(900px 500px at 10% 0%, rgba(52,211,153,.14), transparent 55%),
+    linear-gradient(180deg, var(--bg), var(--bg2) 65%);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Apple SD Gothic Neo, "Malgun Gothic", sans-serif;
+  line-height:1.65;
+}
+
+a{ color:inherit; }
+img{ max-width:100%; display:block; }
+
+.container{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+}
+
+.topbar{
+  position: sticky;
+  top:0;
+  z-index:50;
+  background: rgba(11,13,16,.72);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.topwrap{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  height:64px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:750;
+  letter-spacing:.2px;
+}
+.brand a{
+  text-decoration:none;
+}
+.brand .dot{
+  width:10px;height:10px;border-radius:999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  box-shadow: 0 0 0 3px rgba(255,255,255,.04);
+}
+
+.nav{
+  margin-left:auto;
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+}
+.nav a{
+  text-decoration:none;
+  color: var(--muted);
+  padding: 9px 10px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  font-size: 14px;
+}
+.nav a:hover{
+  background: rgba(255,255,255,.04);
+  border-color: rgba(255,255,255,.06);
+  color: #cbd5e1;
+}
+.nav a.active{
+  background: rgba(96,165,250,.10);
+  border-color: rgba(96,165,250,.22);
+  color:#dbeafe;
+}
+
+.hero{
+  padding: 44px 0 18px;
+}
+.kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-size:12px;
+  color: var(--muted);
+  border:1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.03);
+  padding:8px 12px;
+  border-radius: 999px;
+}
+.kicker .live{
+  width:8px;height:8px;border-radius:999px;
+  background: rgba(52,211,153,.9);
+  box-shadow: 0 0 0 4px rgba(52,211,153,.10);
+}
+
+.h1{
+  margin: 14px 0 10px;
+  font-size: clamp(30px, 4.6vw, 52px);
+  letter-spacing: -0.6px;
+  line-height: 1.12;
+}
+.sub{
+  color: var(--muted);
+  max-width: 68ch;
+  margin: 0;
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top: 18px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  text-decoration:none;
+  font-size: 14px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.03);
+  color: var(--text);
+}
+.btn:hover{
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.12);
+}
+.btn.primary{
+  background: rgba(96,165,250,.18);
+  border-color: rgba(96,165,250,.26);
+  color: #eaf2ff;
+}
+.btn.primary:hover{
+  background: rgba(96,165,250,.24);
+  border-color: rgba(96,165,250,.36);
+}
+
+.grid{
+  display:grid;
+  gap: 14px;
+}
+.grid.cols-3{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid.cols-2{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+@media (max-width: 920px){
+  .grid.cols-3{ grid-template-columns: 1fr; }
+  .grid.cols-2{ grid-template-columns: 1fr; }
+}
+
+.card{
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,.08);
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+.card.pad{ padding: 18px; }
+
+.section{
+  padding: 18px 0 40px;
+}
+.section-title{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:14px;
+  margin: 0 0 12px;
+}
+.section-title h2{
+  margin:0;
+  font-size: 18px;
+  letter-spacing: -.2px;
+}
+.section-title .hint{
+  font-size: 13px;
+  color: var(--muted2);
+}
+
+.divider{
+  height:1px;
+  background: rgba(255,255,255,.07);
+  margin: 18px 0;
+}
+
+.item{
+  border:1px solid rgba(255,255,255,.08);
+  background: rgba(10,14,18,.55);
+  border-radius: 14px;
+  padding: 16px;
+  display:grid;
+  gap:10px;
+  transition: transform .12s ease, border-color .12s ease, background .12s ease;
+}
+.item:hover{
+  transform: translateY(-2px);
+  border-color: rgba(96,165,250,.22);
+  background: rgba(10,14,18,.72);
+}
+.item h3{
+  margin:0;
+  font-size: 16px;
+  letter-spacing: -.15px;
+}
+.item p{
+  margin:0;
+  color: var(--muted);
+  font-size: 14px;
+}
+.meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top: 2px;
+}
+.tag{
+  font-size: 12px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  color: #cbd5e1;
+}
+.tag.blue{
+  border-color: rgba(96,165,250,.22);
+  background: rgba(96,165,250,.10);
+  color: #dbeafe;
+}
+.tag.green{
+  border-color: rgba(52,211,153,.22);
+  background: rgba(52,211,153,.10);
+  color: #d1fae5;
+}
+
+.links{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top: 8px;
+}
+.links a{
+  color: #cbd5e1;
+  text-decoration:none;
+  font-size: 13px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  padding: 7px 10px;
+  border-radius: 12px;
+}
+.links a:hover{
+  border-color: rgba(255,255,255,.14);
+  background: rgba(255,255,255,.05);
+}
+
+.prose{
+  max-width: 78ch;
+}
+.prose p{ color: var(--muted); margin: 10px 0; }
+.prose ul{ color: var(--muted); margin: 10px 0 0 18px; }
+.prose li{ margin: 6px 0; }
+
+.footer{
+  padding: 44px 0 60px;
+  color: var(--muted2);
+}
+.footerline{
+  border-top: 1px solid rgba(255,255,255,.07);
+  padding-top: 16px;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+  font-size: 12px;
+}
+
+.small{
+  font-size: 12px;
+  color: var(--muted2);
+}
