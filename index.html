@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
@@ -109,6 +109,128 @@
       <div class="footerline">
         <div>© <span id="year"></span> Beomjun Jung</div>
         <div class="small">Hosted on GitHub Pages</div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html> -->
+
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beomjun Jung | Research Portfolio</title>
+  <meta name="description" content="Research-oriented portfolio website." />
+  <link rel="stylesheet" href="/styles/main.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topwrap">
+      <div class="brand">
+        <span class="dot"></span>
+        <a href="/index.html">Beomjun Jung</a>
+      </div>
+
+      <nav class="nav">
+        <a data-nav href="/about.html">About</a>
+
+        <div class="nav-dd" id="projects-dd">
+          <a data-nav class="nav-link" href="/projects.html" aria-haspopup="true" aria-expanded="false">
+            Projects
+          </a>
+          <div class="dd-menu" role="menu" aria-label="Projects menu"></div>
+        </div>
+
+        <a data-nav href="/publications.html">Publications</a>
+        <a href="/assets/resume.pdf">Resume</a>
+        <a data-nav href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="kicker">Research Portfolio</p>
+      <h1 class="h1">HELLO,</h1>
+      <p class="sub">
+        정범준(Beomjun Jung) — Robotics / Embedded / Systems.<br />
+        연구/개발 기록과 프로젝트 요약을 모아서 정리합니다.
+      </p>
+
+      <div class="actions">
+        <a class="btn primary" href="/projects.html">Projects</a>
+        <a class="btn" href="/publications.html">Publications</a>
+        <a class="btn" href="/assets/resume.pdf">Resume (PDF)</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>Highlights</h2>
+        <div class="hint">핵심만 짧게</div>
+      </div>
+
+      <div class="grid cols-3">
+        <div class="card pad">
+          <h3>Embedded</h3>
+          <p>STM32 · FreeRTOS · USB CDC · CAN/UART</p>
+        </div>
+        <div class="card pad">
+          <h3>Robotics</h3>
+          <p>Modeling · Control · Simulation</p>
+        </div>
+        <div class="card pad">
+          <h3>System</h3>
+          <p>Architecture · Test · Verification</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section-title">
+        <h2>Featured</h2>
+        <div class="hint">대표 프로젝트 2개</div>
+      </div>
+
+      <div class="grid cols-2">
+        <article class="item">
+          <h3>EGSE Communication Relay</h3>
+          <p>멀티 인터페이스(UART/CAN/USB) 수신·라우팅·ACK/CRC·동기화 설계.</p>
+          <div class="meta">
+            <span class="tag">STM32</span>
+            <span class="tag">FreeRTOS</span>
+            <span class="tag">USB</span>
+            <span class="tag">CAN/UART</span>
+          </div>
+          <div class="links">
+            <a href="#" target="_blank" rel="noopener">Repo</a>
+            <a href="/projects.html#egse">Details</a>
+          </div>
+        </article>
+
+        <article class="item">
+          <h3>Wheel-Leg Robot System</h3>
+          <p>모델링/시뮬레이션 기반 제어 및 구현 검증, 시스템 통합.</p>
+          <div class="meta">
+            <span class="tag">Control</span>
+            <span class="tag">Simulation</span>
+            <span class="tag">Integration</span>
+          </div>
+          <div class="links">
+            <a href="#" target="_blank" rel="noopener">Report</a>
+            <a href="/projects.html#wheel-leg">Details</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footerline">
+        <div>© <span id="year"></span> Beomjun Jung</div>
+        <div>GitHub Pages</div>
       </div>
     </footer>
   </main>

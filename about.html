@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
@@ -103,6 +103,84 @@
       <div class="footerline">
         <div>© <span id="year"></span> Beomjun Jung</div>
         <div class="small">About page</div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html> -->
+
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | Beomjun Jung</title>
+  <meta name="description" content="About page." />
+  <link rel="stylesheet" href="/styles/main.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topwrap">
+      <div class="brand"><span class="dot"></span><a href="/index.html">Beomjun Jung</a></div>
+      <nav class="nav">
+        <a data-nav href="/about.html">About</a>
+        <div class="nav-dd" id="projects-dd">
+          <a data-nav class="nav-link" href="/projects.html" aria-haspopup="true" aria-expanded="false">Projects</a>
+          <div class="dd-menu" role="menu" aria-label="Projects menu"></div>
+        </div>
+        <a data-nav href="/publications.html">Publications</a>
+        <a href="/assets/resume.pdf">Resume</a>
+        <a data-nav href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="kicker">About</p>
+      <h1 class="h1">PROFILE</h1>
+      <p class="sub">짧고 명확하게: 누구인지 / 무엇을 하는지 / 관심분야.</p>
+    </section>
+
+    <section class="section">
+      <div class="grid cols-2">
+        <div class="card pad">
+          <div class="prose">
+            <p>
+              (여기에 3~6줄 소개를 넣으면 됨) <br/>
+              예: 로보틱스와 임베디드 시스템을 중심으로 설계-구현-검증을 수행합니다.
+              STM32 + FreeRTOS 기반 통신/제어, 시스템 아키텍처 정리에 관심이 있습니다.
+            </p>
+          </div>
+          <div class="divider"></div>
+          <div class="links">
+            <a href="https://github.com/wjdqjawns" target="_blank" rel="noopener">GitHub</a>
+            <a href="/assets/resume.pdf">Resume PDF</a>
+          </div>
+        </div>
+
+        <div class="card pad">
+          <div class="section-title">
+            <h2>Focus</h2>
+            <div class="hint">키워드</div>
+          </div>
+          <div class="prose">
+            <ul>
+              <li>Embedded: STM32, FreeRTOS, USB/CAN/UART</li>
+              <li>Robotics: Modeling, Control, Simulation</li>
+              <li>System: Architecture, Testing, Documentation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footerline">
+        <div>© <span id="year"></span> Beomjun Jung</div>
+        <div>About</div>
       </div>
     </footer>
   </main>

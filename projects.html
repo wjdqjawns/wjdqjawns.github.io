@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
@@ -111,6 +111,115 @@
       <div class="footerline">
         <div>© <span id="year"></span> Beomjun Jung</div>
         <div class="small">Projects page</div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html> -->
+
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects | Beomjun Jung</title>
+  <meta name="description" content="Projects page." />
+  <link rel="stylesheet" href="/styles/main.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topwrap">
+      <div class="brand"><span class="dot"></span><a href="/index.html">Beomjun Jung</a></div>
+      <nav class="nav">
+        <a data-nav href="/about.html">About</a>
+        <div class="nav-dd" id="projects-dd">
+          <a data-nav class="nav-link" href="/projects.html" aria-haspopup="true" aria-expanded="false">Projects</a>
+          <div class="dd-menu" role="menu" aria-label="Projects menu"></div>
+        </div>
+        <a data-nav href="/publications.html">Publications</a>
+        <a href="/assets/resume.pdf">Resume</a>
+        <a data-nav href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="kicker">Projects</p>
+      <h1 class="h1">WORKS</h1>
+      <p class="sub">Personal / Team으로 나누고, 역할과 결과가 보이도록 정리.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>Personal</h2>
+        <div class="hint">개인 프로젝트</div>
+      </div>
+
+      <div class="grid cols-2">
+        <article class="item" id="egse">
+          <h3>EGSE Communication Relay</h3>
+          <p>멀티 인터페이스 통신 릴레이: 라우팅/ACK/CRC/시간 동기 구조 설계.</p>
+          <div class="meta">
+            <span class="tag">STM32</span><span class="tag">FreeRTOS</span><span class="tag">USB</span><span class="tag">CAN/UART</span>
+          </div>
+          <div class="links">
+            <a href="#" target="_blank" rel="noopener">Repo</a>
+            <a href="#" target="_blank" rel="noopener">Docs</a>
+          </div>
+        </article>
+
+        <article class="item" id="logging">
+          <h3>Experiment Logging Template</h3>
+          <p>실험 재현성을 위한 폴더 구조/로그 규칙/리포트 템플릿.</p>
+          <div class="meta">
+            <span class="tag">Python</span><span class="tag">Docs</span><span class="tag">Repro</span>
+          </div>
+          <div class="links">
+            <a href="#" target="_blank" rel="noopener">Repo</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section-title">
+        <h2>Team</h2>
+        <div class="hint">팀 프로젝트</div>
+      </div>
+
+      <div class="grid cols-2">
+        <article class="item" id="wheel-leg">
+          <h3>Wheel-Leg Robot System (UGRP)</h3>
+          <p>모델링/시뮬레이션 기반 제어 및 구현 검증. 시스템 통합.</p>
+          <div class="meta">
+            <span class="tag">Robotics</span><span class="tag">Control</span><span class="tag">Simulation</span>
+          </div>
+          <div class="links">
+            <a href="#" target="_blank" rel="noopener">Report</a>
+            <a href="#" target="_blank" rel="noopener">Repo</a>
+          </div>
+        </article>
+
+        <article class="item" id="team-2">
+          <h3>Team Project Title</h3>
+          <p>제목/요약/내 역할/결과를 넣기.</p>
+          <div class="meta">
+            <span class="tag">Role: ___</span><span class="tag">Tech: ___</span>
+          </div>
+          <div class="links">
+            <a href="#" target="_blank" rel="noopener">Link</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footerline">
+        <div>© <span id="year"></span> Beomjun Jung</div>
+        <div>Projects</div>
       </div>
     </footer>
   </main>

@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
@@ -79,6 +79,73 @@
       <div class="footerline">
         <div>© <span id="year"></span> Beomjun Jung</div>
         <div class="small">Contact page</div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html> -->
+
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Beomjun Jung</title>
+  <meta name="description" content="Contact page." />
+  <link rel="stylesheet" href="/styles/main.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topwrap">
+      <div class="brand"><span class="dot"></span><a href="/index.html">Beomjun Jung</a></div>
+      <nav class="nav">
+        <a data-nav href="/about.html">About</a>
+        <div class="nav-dd" id="projects-dd">
+          <a data-nav class="nav-link" href="/projects.html" aria-haspopup="true" aria-expanded="false">Projects</a>
+          <div class="dd-menu" role="menu" aria-label="Projects menu"></div>
+        </div>
+        <a data-nav href="/publications.html">Publications</a>
+        <a href="/assets/resume.pdf">Resume</a>
+        <a data-nav href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="kicker">Contact</p>
+      <h1 class="h1">REACH ME</h1>
+      <p class="sub">메일/링크드인/인스타 링크만 깔끔하게.</p>
+    </section>
+
+    <section class="section">
+      <div class="grid cols-2">
+        <div class="item">
+          <h3>Email</h3>
+          <p>가장 좋은 연락 수단</p>
+          <div class="links">
+            <a href="mailto:you@example.com">you@example.com</a>
+          </div>
+        </div>
+
+        <div class="item">
+          <h3>Social</h3>
+          <p>프로필 링크</p>
+          <div class="links">
+            <a href="https://github.com/wjdqjawns" target="_blank" rel="noopener">GitHub</a>
+            <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="#" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footerline">
+        <div>© <span id="year"></span> Beomjun Jung</div>
+        <div>Contact</div>
       </div>
     </footer>
   </main>

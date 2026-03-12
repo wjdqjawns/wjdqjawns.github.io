@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
@@ -82,6 +82,86 @@
       <div class="footerline">
         <div>© <span id="year"></span> Beomjun Jung</div>
         <div class="small">Publications page</div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html> -->
+
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Publications | Beomjun Jung</title>
+  <meta name="description" content="Publications page." />
+  <link rel="stylesheet" href="/styles/main.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topwrap">
+      <div class="brand"><span class="dot"></span><a href="/index.html">Beomjun Jung</a></div>
+      <nav class="nav">
+        <a data-nav href="/about.html">About</a>
+        <div class="nav-dd" id="projects-dd">
+          <a data-nav class="nav-link" href="/projects.html" aria-haspopup="true" aria-expanded="false">Projects</a>
+          <div class="dd-menu" role="menu" aria-label="Projects menu"></div>
+        </div>
+        <a data-nav href="/publications.html">Publications</a>
+        <a href="/assets/resume.pdf">Resume</a>
+        <a data-nav href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="kicker">Publications</p>
+      <h1 class="h1">PAPERS</h1>
+      <p class="sub">International / Domestic으로 정리하고, DOI/PDF/Code 링크만 붙이면 깔끔.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>International</h2>
+        <div class="hint">Journal / Conference</div>
+      </div>
+
+      <div class="grid">
+        <div class="item">
+          <h3>[2024] Title</h3>
+          <p>Authors · Venue · short note</p>
+          <div class="links">
+            <a href="#" target="_blank" rel="noopener">DOI</a>
+            <a href="#" target="_blank" rel="noopener">PDF</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section-title">
+        <h2>Domestic</h2>
+        <div class="hint">국내 학회 / 보고서</div>
+      </div>
+
+      <div class="grid">
+        <div class="item">
+          <h3>[2023] Title</h3>
+          <p>Venue · short note</p>
+          <div class="links">
+            <a href="#" target="_blank" rel="noopener">Link</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footerline">
+        <div>© <span id="year"></span> Beomjun Jung</div>
+        <div>Publications</div>
       </div>
     </footer>
   </main>
