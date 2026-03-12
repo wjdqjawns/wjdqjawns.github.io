@@ -1,0 +1,94 @@
+/* ===== TOP BAR ===== */
+
+#topbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: #0b0b0c;
+  border-bottom: 1px solid #1e1e20;
+  z-index: 1000;
+}
+
+.topbar-inner {
+  width: min(1200px, calc(100% - 80px));
+  margin: 0 auto;
+
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand */
+
+.topbar-brand {
+  color: #ffffff;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Navigation */
+
+.topbar-nav {
+  display: flex;
+  gap: 28px;
+}
+
+.topbar-nav a {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.95rem;
+}
+
+.topbar-nav a:hover,
+.topbar-nav a.active {
+  color: #ffffff;
+}
+
+/* ===== CONTENT CARDS ===== */
+
+.entry-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+}
+
+.entry-headline {
+  margin-bottom: 10px;
+}
+
+.link-row,
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.chip,
+.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-soft);
+  font-size: 0.9rem;
+}
+
+.chip:hover {
+  background: var(--text);
+  color: #fff;
+  border-color: var(--text);
+}
+
+.footer-inner {
+  margin-top: 56px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+}

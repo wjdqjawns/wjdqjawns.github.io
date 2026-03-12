@@ -1,0 +1,66 @@
+/* ===== SITE LAYOUT ===== */
+
+.site-shell {
+  min-height: 100vh;
+}
+
+/* MAIN CONTENT */
+
+.page-shell {
+  width: min(1100px, calc(100% - 80px));
+  margin: 0 auto;
+
+  padding-top: 48px;
+  padding-bottom: 80px;
+}
+
+/* HEADER */
+
+.page-header {
+  margin-bottom: 40px;
+}
+
+.page-title {
+  font-size: clamp(2.4rem, 4vw, 3rem);
+  letter-spacing: -0.04em;
+  margin-bottom: 12px;
+}
+
+.page-subtitle {
+  max-width: 720px;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* SECTION */
+
+.section-block {
+  margin-top: 56px;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 1.4rem;
+}
+
+.section-link {
+  color: var(--muted);
+  text-decoration: underline;
+}
+
+.stack-lg {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stack-md {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}

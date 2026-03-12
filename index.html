@@ -1,240 +1,72 @@
-<!-- <!doctype html>
-<html lang="ko">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Beomjun Jung | Research Portfolio</title>
-  <meta name="description" content="Research-oriented portfolio website." />
-  <link rel="stylesheet" href="/styles/main.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beomjun Chung — Home</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles/base.css" />
+  <link rel="stylesheet" href="./styles/layout.css" />
+  <link rel="stylesheet" href="./styles/components.css" />
+  <link rel="stylesheet" href="./styles/pages.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div class="container topwrap">
-      <div class="brand">
-        <span class="dot"></span>
-        <a href="/index.html">Beomjun Jung</a>
-      </div>
-      <nav class="nav">
-        <a data-nav href="/about.html">About</a>
-        <a data-nav href="/projects.html">Projects</a>
-        <a data-nav href="/publications.html">Publications</a>
-        <a href="/assets/resume.pdf">Resume</a>
-        <a data-nav href="/contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <div class="site-shell">
+    <header id="topbar" data-base="."></header>
 
-  <main class="container">
-    <section class="hero">
-      <div class="kicker"><span class="live"></span> Research notes & engineering portfolio</div>
-      <h1 class="h1">로보틱스 · 임베디드 · 시스템 설계</h1>
-      <p class="sub">
-        정범준(Beomjun Jung)의 연구/개발 기록과 프로젝트 포트폴리오입니다.
-        STM32 + FreeRTOS, USB/CAN/UART, EGSE, 로봇 시스템 구현 및 검증에 관심이 있습니다.
-      </p>
+    <main class="page-shell">
+      <section class="page-header">
+        <p class="eyebrow">PORTFOLIO</p>
+        <h1 class="page-title">Beomjun Chung</h1>
+        <p class="page-subtitle">
+          Embedded systems, robotics, satellite engineering, and research-oriented system development.
+        </p>
 
-      <div class="actions">
-        <a class="btn primary" href="/projects.html">View Projects</a>
-        <a class="btn" href="/publications.html">View Publications</a>
-        <a class="btn" href="/assets/resume.pdf">Download Resume (PDF)</a>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-title">
-        <h2>Highlights</h2>
-        <div class="hint">대표 항목 3개만 깔끔하게</div>
-      </div>
-
-      <div class="grid cols-3">
-        <div class="card pad">
-          <div class="small">Focus</div>
-          <h3 style="margin:6px 0 6px;">Embedded Systems</h3>
-          <p class="small">STM32 · FreeRTOS · USB CDC · CAN · UART</p>
+        <div class="link-row compact">
+          <a class="chip" href="./pages/about.html">About</a>
+          <a class="chip" href="./pages/projects.html">Projects</a>
+          <a class="chip" href="./pages/publications.html">Publications</a>
+          <a class="chip" href="./pages/contact.html">Contact</a>
         </div>
+      </section>
 
-        <div class="card pad">
-          <div class="small">Focus</div>
-          <h3 style="margin:6px 0 6px;">Robotics</h3>
-          <p class="small">Modeling · Control · Simulation (e.g., MuJoCo/ROS)</p>
+      <section class="section-block">
+        <div class="section-head">
+          <h2 class="section-title">Selected Projects</h2>
+          <a class="section-link" href="./pages/projects.html">All projects</a>
         </div>
+        <div id="selected-projects" class="stack-lg"></div>
+      </section>
 
-        <div class="card pad">
-          <div class="small">Focus</div>
-          <h3 style="margin:6px 0 6px;">System Design</h3>
-          <p class="small">Architecture · Interfaces · Reliability · Verification</p>
+      <section class="section-block">
+        <div class="section-head">
+          <h2 class="section-title">Selected Publications</h2>
+          <a class="section-link" href="./pages/publications.html">All publications</a>
         </div>
-      </div>
+        <div id="selected-publications" class="stack-lg"></div>
+      </section>
 
-      <div class="divider"></div>
+      <section class="section-block note-block">
+        <h2 class="section-title">Focus</h2>
+        <p>
+          This site is organized as a document-style portfolio. Projects are grouped into personal and team work.
+          Publications are grouped into domestic and international venues, each split into conference and journal.
+        </p>
+      </section>
 
-      <div class="section-title">
-        <h2>Featured Projects</h2>
-        <div class="hint">Projects 페이지에서 Personal/Team으로 분리</div>
-      </div>
+      <footer id="footer" data-base="."></footer>
+    </main>
+  </div>
 
-      <div class="grid cols-2">
-        <article class="item">
-          <h3>EGSE Communication Relay (STM32 + FreeRTOS)</h3>
-          <p>멀티 인터페이스(UART/CAN/USB) 데이터 수신·라우팅·ACK/CRC·동기화 설계.</p>
-          <div class="meta">
-            <span class="tag blue">STM32</span>
-            <span class="tag green">FreeRTOS</span>
-            <span class="tag">USB CDC</span>
-            <span class="tag">CAN</span>
-          </div>
-          <div class="links">
-            <a href="#" target="_blank" rel="noopener">Repo</a>
-            <a href="#" target="_blank" rel="noopener">Write-up</a>
-          </div>
-        </article>
-
-        <article class="item">
-          <h3>Wheel-Leg Robot System</h3>
-          <p>모델링/시뮬레이션 기반으로 제어/구현 검증 및 하드웨어 통합.</p>
-          <div class="meta">
-            <span class="tag">ROS</span>
-            <span class="tag blue">Control</span>
-            <span class="tag">Simulation</span>
-          </div>
-          <div class="links">
-            <a href="#" target="_blank" rel="noopener">Repo</a>
-            <a href="#" target="_blank" rel="noopener">Report</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="footerline">
-        <div>© <span id="year"></span> Beomjun Jung</div>
-        <div class="small">Hosted on GitHub Pages</div>
-      </div>
-    </footer>
-  </main>
-
-  <script src="/scripts/main.js"></script>
-</body>
-</html> -->
-
-<!doctype html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Beomjun Jung | Research Portfolio</title>
-  <meta name="description" content="Research-oriented portfolio website." />
-  <link rel="stylesheet" href="/styles/main.css" />
-</head>
-<body>
-  <header class="topbar">
-    <div class="container topwrap">
-      <div class="brand">
-        <span class="dot"></span>
-        <a href="/index.html">Beomjun Jung</a>
-      </div>
-
-      <nav class="nav">
-        <a data-nav href="/about.html">About</a>
-
-        <div class="nav-dd" id="projects-dd">
-          <a data-nav class="nav-link" href="/projects.html" aria-haspopup="true" aria-expanded="false">
-            Projects
-          </a>
-          <div class="dd-menu" role="menu" aria-label="Projects menu"></div>
-        </div>
-
-        <a data-nav href="/publications.html">Publications</a>
-        <a href="/assets/resume.pdf">Resume</a>
-        <a data-nav href="/contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="hero">
-      <p class="kicker">Research Portfolio</p>
-      <h1 class="h1">HELLO,</h1>
-      <p class="sub">
-        정범준(Beomjun Jung) — Robotics / Embedded / Systems.<br />
-        연구/개발 기록과 프로젝트 요약을 모아서 정리합니다.
-      </p>
-
-      <div class="actions">
-        <a class="btn primary" href="/projects.html">Projects</a>
-        <a class="btn" href="/publications.html">Publications</a>
-        <a class="btn" href="/assets/resume.pdf">Resume (PDF)</a>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-title">
-        <h2>Highlights</h2>
-        <div class="hint">핵심만 짧게</div>
-      </div>
-
-      <div class="grid cols-3">
-        <div class="card pad">
-          <h3>Embedded</h3>
-          <p>STM32 · FreeRTOS · USB CDC · CAN/UART</p>
-        </div>
-        <div class="card pad">
-          <h3>Robotics</h3>
-          <p>Modeling · Control · Simulation</p>
-        </div>
-        <div class="card pad">
-          <h3>System</h3>
-          <p>Architecture · Test · Verification</p>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="section-title">
-        <h2>Featured</h2>
-        <div class="hint">대표 프로젝트 2개</div>
-      </div>
-
-      <div class="grid cols-2">
-        <article class="item">
-          <h3>EGSE Communication Relay</h3>
-          <p>멀티 인터페이스(UART/CAN/USB) 수신·라우팅·ACK/CRC·동기화 설계.</p>
-          <div class="meta">
-            <span class="tag">STM32</span>
-            <span class="tag">FreeRTOS</span>
-            <span class="tag">USB</span>
-            <span class="tag">CAN/UART</span>
-          </div>
-          <div class="links">
-            <a href="#" target="_blank" rel="noopener">Repo</a>
-            <a href="/projects.html#egse">Details</a>
-          </div>
-        </article>
-
-        <article class="item">
-          <h3>Wheel-Leg Robot System</h3>
-          <p>모델링/시뮬레이션 기반 제어 및 구현 검증, 시스템 통합.</p>
-          <div class="meta">
-            <span class="tag">Control</span>
-            <span class="tag">Simulation</span>
-            <span class="tag">Integration</span>
-          </div>
-          <div class="links">
-            <a href="#" target="_blank" rel="noopener">Report</a>
-            <a href="/projects.html#wheel-leg">Details</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="footerline">
-        <div>© <span id="year"></span> Beomjun Jung</div>
-        <div>GitHub Pages</div>
-      </div>
-    </footer>
-  </main>
-
-  <script src="/scripts/main.js"></script>
+  <script src="./data/projects.js"></script>
+  <script src="./data/publications.js"></script>
+  <script src="./scripts/include.js"></script>
+  <script src="./scripts/render_projects.js"></script>
+  <script src="./scripts/render_publications.js"></script>
+  <script src="./scripts/main.js"></script>
 </body>
 </html>

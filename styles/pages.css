@@ -1,0 +1,210 @@
+h1, h2, h3 {
+  margin: 0;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2rem, 3vw, 3rem);
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-size: 1.14rem;
+  margin-bottom: 14px;
+}
+
+h3 {
+  font-size: 1.04rem;
+}
+
+p + p {
+  margin-top: 10px;
+}
+
+.eyebrow {
+  margin-bottom: 8px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.lede,
+.hero-text {
+  max-width: 720px;
+  color: #2a2a2a;
+  font-size: 1.03rem;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.text-link {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.text-link.strong {
+  text-decoration: none;
+}
+
+.text-link.strong:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.plain-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.entry-item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+}
+
+.contact-list {
+  display: grid;
+  gap: 14px;
+}
+
+.contact-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.contact-label {
+  color: var(--muted);
+}
+
+.detail-hero {
+  margin-bottom: 28px;
+}
+
+.detail-metadata {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.figure-block {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+}
+
+.placeholder-figure {
+  aspect-ratio: 16/9;
+  background: linear-gradient(180deg, #ecece8 0%, #f7f7f4 100%);
+  border: 1px dashed #c6c6bf;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+}
+
+.code-block {
+  background: #111111;
+  color: #f5f5f2;
+  padding: 16px;
+  border-radius: 12px;
+  overflow-x: auto;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 720px) {
+  .detail-metadata,
+  .contact-item {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* section spacing */
+
+.page-header {
+  margin-bottom: 36px;
+}
+
+.section + .section {
+  margin-top: 40px;
+}
+
+.section h2 {
+  margin-bottom: 12px;
+}
+
+.section h3 {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+}
+
+.section p {
+  margin-bottom: 14px;
+}
+
+.section ul {
+  margin: 10px 0 0 0;
+  padding-left: 20px;
+}
+
+.section li {
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+/* two-column layout for About */
+.split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+/* cleaner list style */
+.plain-list {
+  margin: 10px 0 0 0;
+  padding-left: 20px;
+}
+
+.plain-list li {
+  margin-bottom: 8px;
+}
+
+/* education card spacing */
+.entry-item {
+  margin-top: 12px;
+  padding: 18px 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+.entry-item .meta {
+  margin-bottom: 12px;
+  color: var(--muted);
+}
+
+/* optional meta paragraph */
+.meta {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* mobile */
+@media (max-width: 900px) {
+  .split-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
