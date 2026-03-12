@@ -1,5 +1,4 @@
 /* ===== TOP BAR ===== */
-
 #topbar {
   position: sticky;
   top: 0;
@@ -12,7 +11,6 @@
 .topbar-inner {
   width: min(1200px, calc(100% - 80px));
   margin: 0 auto;
-
   height: 72px;
 
   display: flex;
@@ -21,7 +19,6 @@
 }
 
 /* Brand */
-
 .topbar-brand {
   color: #ffffff;
   font-size: 1.35rem;
@@ -30,24 +27,70 @@
 }
 
 /* Navigation */
-
 .topbar-nav {
   display: flex;
+  align-items: center;
   gap: 28px;
 }
 
-.topbar-nav a {
+.topbar-nav > a,
+.topbar-nav .dropbtn {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0;
   color: rgba(255,255,255,0.75);
   font-size: 0.95rem;
+  text-decoration: none;
+  line-height: 1;
 }
 
-.topbar-nav a:hover,
-.topbar-nav a.active {
+.topbar-nav > a:hover,
+.topbar-nav > a.active,
+.topbar-nav .dropbtn:hover {
   color: #ffffff;
 }
 
-/* ===== CONTENT CARDS ===== */
+/* Dropdown */
+.dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+}
 
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 170px;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 8px 0;
+  z-index: 1000;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 14px;
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 0.95rem;
+}
+
+.dropdown-content a:hover {
+  background: #222;
+  color: #ffffff;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ===== CONTENT CARDS ===== */
 .entry-card {
   background: var(--surface);
   border: 1px solid var(--line);
@@ -91,4 +134,31 @@
   border-top: 1px solid var(--line);
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+/* ===== PUBLICATION GROUP HIERARCHY ===== */
+.pub-scope-block {
+  margin-top: 28px;
+}
+
+.pub-scope-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 18px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.pub-type-group {
+  margin-top: 22px;
+}
+
+.pub-type-heading {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0 0 14px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }

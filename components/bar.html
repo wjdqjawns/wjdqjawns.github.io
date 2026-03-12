@@ -6,8 +6,25 @@
   <nav class="topbar-nav">
     <a data-link="index.html" href="#">Home</a>
     <a data-link="pages/about.html" href="#">About</a>
-    <a data-link="pages/projects.html" href="#">Projects</a>
-    <a data-link="pages/publications.html" href="#">Publications</a>
+    
+    <!-- <a data-link="pages/projects.html" href="#">Projects</a> -->
+    <div class="dropdown">
+      <a href="/pages/projects.html" class="dropbtn">Projects</a>
+      <div class="dropdown-content">
+        <a href="/pages/projects.html?category=personal">Personal</a>
+        <a href="/pages/projects.html?category=team">Team</a>
+      </div>
+    </div>
+
+    <!-- <a data-link="pages/publications.html" href="#">Publications</a> -->
+    <div class="dropdown">
+      <a href="/pages/publications.html" class="dropbtn">Publications</a>
+      <div class="dropdown-content">
+        <a href="/pages/publications.html?category=international">International</a>
+        <a href="/pages/publications.html?category=domestic">Domestic</a>
+      </div>
+    </div>
+
     <a data-link="pages/contact.html" href="#">Contact</a>
   </nav>
 </div>
