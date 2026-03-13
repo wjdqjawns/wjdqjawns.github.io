@@ -64,6 +64,25 @@ function markActiveNav(scope = document) {
   });
 }
 
+function loadFooter() {
+  fetch(resolvePath("components/footer.html"))
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Failed to fetch footer: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then(data => {
+      const footer = document.getElementById("footer");
+      if (footer) {
+        footer.innerHTML = data;
+      }
+    })
+    .catch(error => {
+      console.error(error);
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const current = window.location.pathname.replace(/\\/g, "/");
   let barPath = "components/bar.html";
@@ -82,4 +101,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadComponent("topbar", barPath);
   bindDataLinks(document);
+  loadFooter();
 });
