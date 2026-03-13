@@ -212,3 +212,18 @@ p + p {
 .course-total {
   margin-top: 16px;
 }
+
+.course-year {
+  margin-left: 12px;
+  margin-top: 6px;
+}
+
+.course-semester {
+  margin-left: 18px;
+  margin-top: 4px;
+}
+
+.course-list {
+  margin: 6px 0 10px 22px;
+  padding-left: 16px;
+}
