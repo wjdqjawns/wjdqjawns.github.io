@@ -1,5 +1,5 @@
 const projects = [
-  {
+  { // project format
     id: "format-project",
     page: "/pages_detail/projects/personal/project-format.html",
 
@@ -17,7 +17,6 @@ const projects = [
 
     thumbnail: "/assets/projects/personal/format-project/fig/fig1.png",
     assets: {
-      // figures
       fig: [
         "/assets/projects/personal/format-project/fig/fig1.png",
         "/assets/projects/personal/format-project/fig/fig2.png",

@@ -241,7 +241,10 @@ p + p {
 }
 
 .project-meta-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.publication-meta-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .meta-block {
@@ -284,7 +287,7 @@ p + p {
 }
 
 .keyword-line {
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 20px;
   color: var(--muted);
   font-size: 0.95rem;

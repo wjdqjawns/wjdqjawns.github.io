@@ -15,6 +15,7 @@ function renderProjectDetailById(projectId) {
 
   const eyebrowEl = document.getElementById("project-eyebrow");
   const titleEl = document.getElementById("project-title");
+  const memberEl = document.getElementById("project-member");
   const summaryEl = document.getElementById("project-summary");
   const yearEl = document.getElementById("project-year");
   const orgEl = document.getElementById("project-organization");
@@ -24,6 +25,7 @@ function renderProjectDetailById(projectId) {
 
   if (eyebrowEl) eyebrowEl.textContent = `PROJECT · ${project.category || ""}`;
   if (titleEl) titleEl.textContent = project.title || "";
+  if (memberEl) memberEl.textContent = project.member || "";
   if (summaryEl) summaryEl.textContent = project.summary || "";
   if (yearEl) yearEl.textContent = project.year || "";
   if (orgEl) orgEl.textContent = project.organization || "";
