@@ -1,152 +1,107 @@
-// function createProjectCard(project, isHome = false) {
-//   const article = document.createElement('article');
-//   article.className = 'entry-card';
+function createProjectCard(project) {
+  const article = document.createElement("article");
+  article.className = "entry-card";
 
-//   const detailHref = isHome ? project.homeDetail : project.detail;
-
-//   article.innerHTML = `
-//     <div class="entry-main">
-//       <div class="entry-headline">
-//         <h3><a class="text-link strong" href="${detailHref}">${project.title}</a></h3>
-//         <p class="meta">${project.category} · ${project.period}</p>
-//       </div>
-//       <p>${project.summary}</p>
-//       <div class="tag-row">
-//         ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-//       </div>
-//       <div class="link-row">
-//         <a class="chip" href="${detailHref}">Details</a>
-//         <a class="chip" href="${project.code}">Code</a>
-//         <a class="chip" href="${project.demo}">Demo</a>
-//         <a class="chip" href="${project.report}">Report</a>
-//       </div>
-//     </div>
-//   `;
-
-//   return article;
-// }
-
-// function renderProjectLists() {
-//   if (typeof projects === 'undefined') return;
-
-//   const personal = document.getElementById('project-list-personal');
-//   const team = document.getElementById('project-list-team');
-//   const selected = document.getElementById('selected-projects');
-
-//   if (personal) {
-//     projects.filter(p => p.category === 'personal').forEach(p => personal.appendChild(createProjectCard(p)));
-//   }
-
-//   if (team) {
-//     projects.filter(p => p.category === 'team').forEach(p => team.appendChild(createProjectCard(p)));
-//   }
-
-//   if (selected) {
-//     projects.slice(0, 3).forEach(p => selected.appendChild(createProjectCard(p, true)));
-//   }
-// }
-
-// function getCategoryFromUrl() {
-//   const params = new URLSearchParams(window.location.search);
-//   return params.get("category");
-// }
-
-// function renderProjectPage() {
-//   const category = getCategoryFromUrl();
-
-//   let filteredProjects = projects;
-
-//   if (category === "personal" || category === "team") {
-//     filteredProjects = projects.filter(project => project.category === category);
-//   }
-
-//   renderProjects("projects-container", filteredProjects);
-// }
-
-// document.addEventListener('DOMContentLoaded', renderProjectLists);
-// renderProjectPage();
-
-function createProjectCard(project, isHome = false) {
-  const article = document.createElement('article');
-  article.className = 'entry-card';
-
-  const detailHref = isHome ? project.homeDetail : project.detail;
+  const pageHref = project.page;
+  const codeHref = project.assets?.code || null;
+  const paperHref = project.assets?.paper || null;
+  const posterHref = project.assets?.poster || null;
+  const slideHref = project.assets?.slide || null;
+  const demoHref = project.demo?.url || null;
+  const keywordText = (project.keywords || []).join(", ");
 
   article.innerHTML = `
     <div class="entry-main">
       <div class="entry-headline">
-        <h3><a class="text-link strong" href="${detailHref}">${project.title}</a></h3>
-        <p class="meta">${project.category} · ${project.period}</p>
+        <h3>
+          <a class="text-link strong" href="${pageHref}">${project.title}</a>
+        </h3>
+        <p class="meta">${project.category} · ${project.region || ""} · ${project.year}</p>
       </div>
-      <p>${project.summary}</p>
-      <div class="tag-row">
-        ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-      </div>
+
+      <p>${project.summary || ""}</p>
+
+      <p class="keyword-line">
+        <strong>Keywords:</strong> ${keywordText || "—"}
+      </p>
+
       <div class="link-row">
-        <a class="chip" href="${detailHref}">Details</a>
-        <a class="chip" href="${project.code}">Code</a>
-        <a class="chip" href="${project.demo}">Demo</a>
-        <a class="chip" href="${project.report}">Report</a>
+        ${createLinkChip("Code", codeHref)}
+        ${createLinkChip("Paper", paperHref)}
+        ${createLinkChip("Poster", posterHref)}
+        ${createLinkChip("Slides", slideHref)}
+        ${createLinkChip("Demo", demoHref)}
+        ${createCitationButton()}
       </div>
     </div>
   `;
+
+  const citationBtn = article.querySelector(".citation-open");
+  if (citationBtn) {
+    citationBtn.addEventListener("click", () => {
+      openCitationModal(project.title, project.citation || "");
+    });
+  }
 
   return article;
 }
 
 function getProjectCategoryFromUrl() {
   const params = new URLSearchParams(window.location.search);
-  return params.get('category');
+  return params.get("category");
 }
 
-function renderProjectCards(container, items, isHome = false) {
+function renderProjectCards(container, items) {
   if (!container) return;
 
-  container.innerHTML = '';
+  container.innerHTML = "";
   items.forEach(project => {
-    container.appendChild(createProjectCard(project, isHome));
+    container.appendChild(createProjectCard(project));
   });
 }
 
 function renderProjectPage() {
-  if (typeof projects === 'undefined') return;
+  if (typeof projects === "undefined") {
+    console.error("projects is not defined");
+    return;
+  }
 
-  const container = document.getElementById('projects-container');
+  const container = document.getElementById("projects-container");
   if (!container) return;
 
   const category = getProjectCategoryFromUrl();
   let filteredProjects = projects;
 
-  const titleEl = document.getElementById('projects-title');
-  const descEl = document.getElementById('projects-description');
+  const titleEl = document.getElementById("projects-title");
+  const descEl = document.getElementById("projects-description");
 
-  if (category === 'personal') {
-    filteredProjects = projects.filter(project => project.category === 'personal');
-    if (titleEl) titleEl.textContent = 'Personal Projects';
-    if (descEl) descEl.textContent = 'Personal projects with dedicated detail pages.';
-  } else if (category === 'team') {
-    filteredProjects = projects.filter(project => project.category === 'team');
-    if (titleEl) titleEl.textContent = 'Team Projects';
-    if (descEl) descEl.textContent = 'Team projects with dedicated detail pages.';
+  if (category === "personal") {
+    filteredProjects = projects.filter(project => project.category === "personal");
+    if (titleEl) titleEl.textContent = "Personal Projects";
+    if (descEl) descEl.textContent = "Personal projects with dedicated detail pages.";
+  } else if (category === "team") {
+    filteredProjects = projects.filter(project => project.category === "team");
+    if (titleEl) titleEl.textContent = "Team Projects";
+    if (descEl) descEl.textContent = "Team projects with dedicated detail pages.";
   } else {
-    if (titleEl) titleEl.textContent = 'Projects';
-    if (descEl) descEl.textContent = 'Personal and team projects with dedicated detail pages.';
+    if (titleEl) titleEl.textContent = "Projects";
+    if (descEl) descEl.textContent = "Personal and team projects with dedicated detail pages.";
   }
 
-  renderProjectCards(container, filteredProjects, false);
+  renderProjectCards(container, filteredProjects);
 }
 
 function renderSelectedProjects() {
-  if (typeof projects === 'undefined') return;
+  if (typeof projects === "undefined") return;
 
-  const selectedContainer = document.getElementById('selected-projects');
+  const selectedContainer = document.getElementById("selected-projects");
   if (!selectedContainer) return;
 
   const selectedProjects = projects.filter(project => project.selected);
-  renderProjectCards(selectedContainer, selectedProjects, true);
+  renderProjectCards(selectedContainer, selectedProjects);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   renderProjectPage();
   renderSelectedProjects();
 });

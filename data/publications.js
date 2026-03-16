@@ -1,22 +1,46 @@
 const publications = [
   {
-    title: "Satellite Attitude Control Using Reinforcement Learning",
-    authors: "Beomjun Chung, Kyungseo Park",
-    venue: "International Conference on Space Systems",
+    id: "format-publication",
+    title: "Format Publication",
+    authors: "Beomjun Chung",
+    venue: "TestConference",
     year: "2025",
+
     selected: true,
-    category: "domestic",
-    type: "conference",
+    category: "domestic", // domestic / international
+    type: "conference", // conference / journal
+
+    keywords: ["", ""],
     summary: "A compact publication landing page structure with direct links to paper, code, poster, and demo.",
-    detail: "../pages_detail/publications/international/satellite-rl-control.html",
-    homeDetail: "./pages_detail/publications/international/satellite-rl-control.html",
+
+    page: "./pages_detail/publications/international/satellite-rl-control.html",
+    
+    thumbnail: "",
+    fig: [
+      ""
+    ],
+
     paper: "../assets/papers/international/sample-paper.pdf",
-    homePaper: "./assets/papers/international/sample-paper.pdf",
+    poster: "./assets/papers/international/sample-paper.pdf",
+    slide: "",
+
     code: "#",
-    poster: "../assets/posters/sample-poster.pdf",
-    homePoster: "./assets/posters/sample-poster.pdf",
-    demo: "#"
+
+    demo: {
+      type: "local",
+      url: "https://www.youtube.com/watch?v=bEWrhnyPSZs"
+    },
+
+    citation: `@misc{chung2026formatproject,
+  author       = {Beomjun Chung},
+  title        = {Format Project},
+  year         = {2026},
+  howpublished = {Personal portfolio project},
+  note         = {GitHub repository and project detail page}
+}`
   },
+
+
   {
     title: "Wearable Monitoring for Chronic Disease Care",
     authors: "Beomjun Jung, Collaborator C",

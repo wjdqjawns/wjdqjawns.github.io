@@ -1,41 +1,101 @@
 const projects = [
   {
-    title: "STM32 USB Communication Relay",
-    category: "personal",
-    period: "2025",
+    id: "format-project",
+    page: "/pages_detail/projects/personal/project-format.html",
+
+    title: "Format Project",
+    member: "Beomjun Chung",
+    organization: "Test",
+    year: "2026", 
+
     selected: true,
-    tags: ["STM32", "FreeRTOS", "USB CDC", "CAN"],
+    category: "personal",
+    region: "sdfsdf",
+    
+    keywords: ["STM32", "FreeRTOS", "USB CDC", "CAN"],
     summary: "Structured relay architecture for USB, UART, and CAN with task-based routing and packet parsing.",
-    detail: "../pages_detail/projects/personal/stm32-usb-relay.html",
-    homeDetail: "./pages_detail/projects/personal/stm32-usb-relay.html",
-    code: "#",
-    demo: "#",
-    report: "#"
+
+    thumbnail: "/assets/projects/personal/format-project/fig/fig1.png",
+    assets: {
+      // figures
+      fig: [
+        "/assets/projects/personal/format-project/fig/fig1.png",
+        "/assets/projects/personal/format-project/fig/fig2.png",
+        "/assets/projects/personal/format-project/fig/fig3.png"
+      ],
+      fig_caption: [
+        "Figure 01. Concept or architecture figure.",
+        "Figure 02. Main implementation or result figure.",
+        "Figure 03. Experimental result."
+      ],
+
+      paper: "/assets/projects/personal/format-project/documents/20260317_project_paper.pdf",
+      poster: "/assets/projects/personal/format-project/documents/20260317_project_poster.pdf",
+      slide: "/assets/projects/personal/format-project/documents/20260317_project_presentation.pdf",
+      code: "https://github.com/wjdqjawns/f1tenth_rl_personal_2026",
+    },
+
+    demo: {
+      type: "youtube",
+      url: "https://www.youtube.com/watch?v=bEWrhnyPSZs"
+    },
+
+    citation: `@misc{chung2026formatproject,
+  author       = {Beomjun Chung},
+  title        = {Format Project},
+  year         = {2026},
+  howpublished = {Personal portfolio project},
+  note         = {GitHub repository and project detail page}
+}`
   },
+
   {
-    title: "MuJoCo GO1 Reinforcement Learning",
-    category: "personal",
-    period: "2026",
+    id: "format-multi-fig-project",
+    page: "/pages_detail/projects/personal/project-multi-format.html",
+
+    title: "Format Project Multi",
+    member: "Beomjun Chung",
+    organization: "Test",
+    year: "2026",
+
     selected: true,
-    tags: ["MuJoCo", "PPO", "Robotics"],
-    summary: "Locomotion environment and training pipeline for quadruped control experiments.",
-    detail: "../pages_detail/projects/personal/mujoco-go1-rl.html",
-    homeDetail: "./pages_detail/projects/personal/mujoco-go1-rl.html",
-    code: "#",
-    demo: "#",
-    report: "#"
-  },
-  {
-    title: "GBSAT EGSE Development",
     category: "team",
-    period: "2025",
-    selected: true,
-    tags: ["CubeSat", "EGSE", "Firmware", "Integration"],
-    summary: "Ground support electronics and communication framework for subsystem integration and testing.",
-    detail: "../pages_detail/projects/team/gbsat-egse.html",
-    homeDetail: "./pages_detail/projects/team/gbsat-egse.html",
-    code: "#",
-    demo: "#",
-    report: "#"
-  }
+    region: "sdfsdf",
+    
+    keywords: ["STM32", "FreeRTOS", "USB CDC", "CAN"],
+    summary: "Structured relay architecture for USB, UART, and CAN with task-based routing and packet parsing.",
+
+    thumbnail: "/assets/projects/personal/format-project/fig/fig1.png",
+    assets: {
+      // figures
+      fig: [
+        "/assets/projects/personal/format-project/fig/fig1.png",
+        "/assets/projects/personal/format-project/fig/fig2.png",
+        "/assets/projects/personal/format-project/fig/fig3.png"
+      ],
+      fig_caption: [
+        "Figure 01. Concept or architecture figure.",
+        "Figure 02. Main implementation or result figure.",
+        "Figure 03. Experimental result."
+      ],
+
+      paper: "/assets/projects/personal/format-project/documents/20260317_project_paper.pdf",
+      poster: "/assets/projects/personal/format-project/documents/20260317_project_poster.pdf",
+      slide: "/assets/projects/personal/format-project/documents/20260317_project_presentation.pdf",
+      code: "https://github.com/wjdqjawns/f1tenth_rl_personal_2026",
+    },
+
+    demo: {
+      type: "youtube",
+      url: "https://www.youtube.com/watch?v=bEWrhnyPSZs"
+    },
+
+    citation: `@misc{chung2026formatproject,
+  author       = {Beomjun Chung},
+  title        = {Format Project},
+  year         = {2026},
+  howpublished = {Personal portfolio project},
+  note         = {GitHub repository and project detail page}
+}`
+  },
 ];
