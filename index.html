@@ -9,10 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./styles/base.css" />
-  <link rel="stylesheet" href="./styles/layout.css" />
-  <link rel="stylesheet" href="./styles/components.css" />
-  <link rel="stylesheet" href="./styles/pages.css" />
+  <link rel="stylesheet" href="/styles/base.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/components.css" />
+  <link rel="stylesheet" href="/styles/pages.css" />
 </head>
 
 <body>
@@ -28,10 +28,11 @@
         </p>
 
         <div class="link-row compact">
-          <a class="chip" href="./pages/about.html">About</a>
-          <a class="chip" href="./pages/projects.html">Projects</a>
-          <a class="chip" href="./pages/publications.html">Publications</a>
-          <a class="chip" href="./pages/contact.html">Contact</a>
+          <a class="chip" href="/pages/about.html">About</a>
+          <!-- <a class="chip" href="/pages/research.html">Research</a> -->
+          <a class="chip" href="/pages/projects.html">Projects</a>
+          <a class="chip" href="/pages/publications.html">Publications</a>
+          <a class="chip" href="/pages/contact.html">Contact</a>
         </div>
       </section>
 
@@ -45,7 +46,7 @@
       <section class="section-block">
         <div class="section-head">
           <h2 class="section-title">Selected Projects</h2>
-          <a class="section-link" href="./pages/projects.html">All projects</a>
+          <a class="section-link" href="/pages/projects.html">All projects</a>
         </div>
         <div id="selected-projects" class="stack-lg"></div>
       </section>
@@ -53,7 +54,7 @@
       <section class="section-block">
         <div class="section-head">
           <h2 class="section-title">Selected Publications</h2>
-          <a class="section-link" href="./pages/publications.html">All publications</a>
+          <a class="section-link" href="/pages/publications.html">All publications</a>
         </div>
         <div id="selected-publications" class="stack-lg"></div>
       </section>
@@ -62,12 +63,14 @@
     </main>
   </div>
 
-  <script src="./data/projects.js"></script>
-  <script src="./data/publications.js"></script>
-  <script src="./scripts/include.js"></script>
-  <script src="../scripts/render_detail.js"></script>
-  <script src="./scripts/render_projects.js"></script>
-  <script src="./scripts/render_publications.js"></script>
-  <script src="./scripts/main.js"></script>
+  <script src="/scripts/include.js"></script>
+  <script src="/scripts/main.js"></script>
+  <script src="/data/projects.js"></script>
+  <script src="/data/publications.js"></script>
+  <script src="/scripts/render_detail.js"></script>
+  <script src="/scripts/render_projects.js"></script>
+  <script src="/scripts/render_publications.js"></script>
+  
 </body>
+
 </html>

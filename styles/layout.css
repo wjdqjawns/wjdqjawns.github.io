@@ -27,7 +27,7 @@
 }
 
 .page-subtitle {
-  max-width: 720px;
+  max-width: 800px;
   font-size: 1rem;
   line-height: 1.8;
 }
@@ -35,7 +35,8 @@
 /* SECTION */
 
 .section-block {
-  margin-top: 56px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .section-head {
