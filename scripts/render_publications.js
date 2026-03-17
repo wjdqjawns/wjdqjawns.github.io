@@ -11,9 +11,8 @@ function createPublicationCard(publication) {
   const keywordText = (publication.keywords || []).join(", ");
 
   const metaParts = [
-    publication.category,
-    publication.type,
-    publication.year
+    publication.year,
+    publication.venue
   ].filter(Boolean);
 
   article.innerHTML = `
@@ -22,8 +21,6 @@ function createPublicationCard(publication) {
         <h3>
           <a class="text-link strong" href="${pageHref}">${publication.title || ""}</a>
         </h3>
-        ${publication.authors ? `<p class="meta">${publication.authors}</p>` : ""}
-        ${publication.venue ? `<p class="meta">${publication.venue}</p>` : ""}
         ${metaParts.length ? `<p class="meta">${metaParts.join(" · ")}</p>` : ""}
       </div>
 

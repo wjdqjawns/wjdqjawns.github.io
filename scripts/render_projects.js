@@ -10,13 +10,19 @@ function createProjectCard(project) {
   const demoHref = project.demo?.url || null;
   const keywordText = (project.keywords || []).join(", ");
 
+  const metaParts = [
+    project.year,
+    project.category,
+    project.region
+  ]
+
   article.innerHTML = `
     <div class="entry-main">
       <div class="entry-headline">
         <h3>
           <a class="text-link strong" href="${pageHref}">${project.title}</a>
         </h3>
-        <p class="meta">${project.category} · ${project.region || ""} · ${project.year}</p>
+        ${metaParts.length ? `<p class="meta">${metaParts.join(" · ")}</p>` : ""}
       </div>
 
       <p>${project.summary || ""}</p>

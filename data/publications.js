@@ -4,11 +4,11 @@ const publications = [
     page: "/pages_detail/publications/domestic/domestic-format-c.html",
 
     title: "Format Publication -dc",
-    authors: "Beomjun Chung",
-    venue: "TestConference",
+    authors: "B. Chung, K. Park",
+    venue: "IROS",
     year: "2025",
 
-    selected: false,
+    selected: true,
     category: "domestic", // domestic / international
     type: "conference", // conference / journal
 
