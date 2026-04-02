@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publication Detail</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../../styles/base.css" />
+  <link rel="stylesheet" href="../../../styles/layout.css" />
+  <link rel="stylesheet" href="../../../styles/components.css" />
+  <link rel="stylesheet" href="../../../styles/pages.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header id="topbar" data-base="../../.."></header>
+
+    <main class="page-shell">
+      <header class="detail-hero">
+        <p class="eyebrow" id="publication-eyebrow"></p>
+        <h1 id="publication-title"></h1>
+        <p class="detail-summary" id="publication-summary"></p>
+
+        <div class="detail-metadata publication-meta-grid">
+          <div class="meta-block">
+            <span class="meta-label">Year</span>
+            <p class="meta" id="publication-year"></p>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label">Author</span>
+            <p class="meta" id="publication-author"></p>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label">Venue</span>
+            <p class="meta" id="publication-venue"></p>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label">Type</span>
+            <p class="meta" id="publication-type"></p>
+          </div>
+        </div>
+
+        <p class="keyword-line">
+          <strong>Keywords:</strong> <span id="publication-keyword-text"></span>
+        </p>
+
+        <div class="link-row" id="publication-links"></div>
+      </header>
+
+      <section class="section">
+        <h2>Introduction</h2>
+        <p>
+          This research presents a compact and ROS-compatible Electrical Resistance Tomography (ERT) measurement board for robotic skin applications. While ERT-based robotic skin is a promising approach for large-area tactile sensing in physical human-robot interaction, existing systems often rely on bulky measurement equipment and limited software interoperability, making practical intergration into robotic platforms difficult.
+        </p>
+      </section>
+
+      <!-- <section class="section">
+        <figure class="figure-block">
+          <img id="publication-thumbnail" alt="Publication thumbnail" class="detail-image" />
+        </figure>
+      </section> -->
+
+      <section class="section">
+        <h2>Compact ERT Measurement Board</h2>
+        <p>
+          The developed board uses a 16-electrode, 2-pole measurement scheme implemented with four 8-channel multiplexers and a Teensy 4.0 MCU.
+          The PCB measures 100 \times 65 mm², which makes it compact enough for internal robot integration, and includes a potentiometer for impedance-level adjustment.
+          An optimized base pattern of 62 measurements is used for efficient sensing, and the measured voltages are normalized and filtered to support stable real-time acquisition and image reconstruction.
+        </p>
+
+        <div class="figure-group" data-fig-indices="0,1"></div>
+      </section>
+
+      <section class="section">
+        <h2>What I Did</h2>
+        <ul class="plain-list">
+          <li>Defined communication structure and task separation</li>
+          <li>Implemented packet parsing and routing</li>
+          <li>Integrated USB CDC transmit/receive handling</li>
+          <li>Built buffer-based inter-task communication</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Experimental Result</h2>
+        <p>
+          This section uses only one figure from the same publication figure pool.
+        </p>
+
+        <div class="figure-group" data-fig-indices="2"></div>
+      </section>
+
+      <section class="section" id="demo-section">
+        <h2>Demo</h2>
+        <div id="publication-demo"></div>
+      </section>
+
+      <footer id="footer" data-base="../../.."></footer>
+    </main>
+  </div>
+
+  <script src="../../../scripts/include.js"></script>
+  <script src="../../../scripts/main.js"></script>
+  <script src="../../../data/publications.js"></script>
+  <script src="../../../scripts/render_detail.js"></script>
+  <script src="../../../scripts/render_publications_detail.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      renderPublicationDetailFromCurrentPage();
+      renderPublicationFigureGroupsFromCurrentPage();
+    });
+  </script>
+</body>
+</html>

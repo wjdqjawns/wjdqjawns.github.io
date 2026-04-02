@@ -194,4 +194,90 @@ const publications = [
   note         = {GitHub repository and project detail page}
 }`
   },
+
+  {
+    id: "2024-dc-ksas-cdh",
+    page: "/pages_detail/publications/domestic/2024-dc-ksas-cdh.html",
+
+    title: "Development of ROS compatible compact PCB for ERT",
+    authors: "Chung Beomjun, Park Kyungseo",
+    venue: "KROC",
+    year: "2025",
+
+    selected: true,
+    category: "domestic", // domestic / international
+    type: "conference", // conference / journal
+
+    keywords: ["Electrical Resistance Tomography (ERT)", "Robot Operating System (ROS)", "Physical Human Robot Interation (pHRI"],
+    summary: "In this study, we developed a compact and ROS-compatible board for electrical resistancetomography.",
+
+    thumbnail: "/assets/publications/domestic/2025-dc-kroc-ert/fig/fig1.png",
+    assets: {
+      fig: [
+        "/assets/publications/domestic/2025-dc-kroc-ert/fig/fig1.png",
+        "/assets/publications/domestic/2025-dc-kroc-ert/fig/fig2.png",
+        "/assets/publications/domestic/2025-dc-kroc-ert/fig/fig3.png"
+      ],
+      fig_caption: [
+        "Figure 01. The developed ERT Operating Board",
+        "Figure 02. (a) Base Pattern Pair, (b) Base Pattern Measurement Results, (c) Image Reconstruction",
+        "Figure 03. ROS System Architecture."
+      ],
+
+      paper: "/assets/publications/domestic/2025-dc-kroc-ert/documents/2025_kroc_paper.pdf",
+      poster: "/assets/publications/domestic/2025-dc-kroc-ert/documents/2025_kroc_poster.pdf",
+      slide: "#",
+      code: "#",
+    },
+
+    demo: {
+      type: "local",
+      url: "#"
+    },
+
+    citation: `#`
+  },
+  
+  {
+    id: "2025-dc-kroc-ert",
+    page: "/pages_detail/publications/domestic/2025-dc-kroc-ert.html",
+
+    title: "Development of ROS compatible compact PCB for ERT",
+    authors: "Chung Beomjun, Park Kyungseo",
+    venue: "KROC",
+    year: "2025",
+
+    selected: true,
+    category: "domestic", // domestic / international
+    type: "conference", // conference / journal
+
+    keywords: ["Electrical Resistance Tomography (ERT)", "Robot Operating System (ROS)", "Physical Human Robot Interation (pHRI"],
+    summary: "In this study, we developed a compact and ROS-compatible board for electrical resistancetomography.",
+
+    thumbnail: "/assets/publications/domestic/2025-dc-kroc-ert/fig/fig1.png",
+    assets: {
+      fig: [
+        "/assets/publications/domestic/2025-dc-kroc-ert/fig/fig1.png",
+        "/assets/publications/domestic/2025-dc-kroc-ert/fig/fig2.png",
+        "/assets/publications/domestic/2025-dc-kroc-ert/fig/fig3.png"
+      ],
+      fig_caption: [
+        "Figure 01. The developed ERT Operating Board",
+        "Figure 02. (a) Base Pattern Pair, (b) Base Pattern Measurement Results, (c) Image Reconstruction",
+        "Figure 03. ROS System Architecture."
+      ],
+
+      paper: "/assets/publications/domestic/2025-dc-kroc-ert/documents/2025_kroc_paper.pdf",
+      poster: "/assets/publications/domestic/2025-dc-kroc-ert/documents/2025_kroc_poster.pdf",
+      slide: "#",
+      code: "#",
+    },
+
+    demo: {
+      type: "local",
+      url: "#"
+    },
+
+    citation: `#`
+  },
 ];
