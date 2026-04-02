@@ -13,6 +13,20 @@
   <link rel="stylesheet" href="../../../styles/layout.css" />
   <link rel="stylesheet" href="../../../styles/components.css" />
   <link rel="stylesheet" href="../../../styles/pages.css" />
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
   <div class="site-shell">
@@ -53,49 +67,62 @@
       <section class="section">
         <h2>Introduction</h2>
         <p>
-          This research presents a compact and ROS-compatible Electrical Resistance Tomography (ERT) measurement board for robotic skin applications. While ERT-based robotic skin is a promising approach for large-area tactile sensing in physical human-robot interaction, existing systems often rely on bulky measurement equipment and limited software interoperability, making practical intergration into robotic platforms difficult.
+          This work presents a compact and ROS-compatible Electrical Resistance Tomography (ERT)
+          measurement board for robotic skin applications. ERT-based robotic skin is a promising
+          approach for large-area tactile sensing in physical human-robot interaction, but existing
+          systems often depend on bulky measurement hardware and limited software interoperability.
+          To improve practical integration into robotic platforms, this project focuses on both
+          hardware miniaturization and direct compatibility with ROS2-based systems.
         </p>
       </section>
-
-      <!-- <section class="section">
-        <figure class="figure-block">
-          <img id="publication-thumbnail" alt="Publication thumbnail" class="detail-image" />
-        </figure>
-      </section> -->
 
       <section class="section">
         <h2>Compact ERT Measurement Board</h2>
         <p>
-          The developed board uses a 16-electrode, 2-pole measurement scheme implemented with four 8-channel multiplexers and a Teensy 4.0 MCU.
-          The PCB measures 100 \times 65 mm², which makes it compact enough for internal robot integration, and includes a potentiometer for impedance-level adjustment.
-          An optimized base pattern of 62 measurements is used for efficient sensing, and the measured voltages are normalized and filtered to support stable real-time acquisition and image reconstruction.
+          The developed board uses a 16-electrode, 2-pole measurement scheme implemented with four
+          8-channel multiplexers and a Teensy 4.0 MCU. The PCB size is \(100 \times 65~\mathrm{mm}^2\),
+          which allows compact internal integration into robotic systems, and a potentiometer is used
+          to adjust the impedance level depending on the sensing setup. For efficient acquisition,
+          an optimized base measurement pattern with 62 measurements is used. The measured values are
+          normalized by injected current, expressed as \(Z = \frac{V}{I}\), and sequential filtering
+          is applied to improve measurement stability during real-time operation.
         </p>
 
         <div class="figure-group" data-fig-indices="0,1"></div>
       </section>
 
       <section class="section">
-        <h2>What I Did</h2>
-        <ul class="plain-list">
-          <li>Defined communication structure and task separation</li>
-          <li>Implemented packet parsing and routing</li>
-          <li>Integrated USB CDC transmit/receive handling</li>
-          <li>Built buffer-based inter-task communication</li>
-        </ul>
-      </section>
-
-      <section class="section">
-        <h2>Experimental Result</h2>
+        <h2>ROS Compatibility</h2>
         <p>
-          This section uses only one figure from the same publication figure pool.
+          The system is designed for Ubuntu 22.04 and ROS2 Humble, with the Teensy 4.0 operating as
+          an independent node through \(\mu\)ROS. Raw sensor voltages are converted into ROS-compatible
+          message formats and transmitted through ROS topics, enabling real-time monitoring and modular
+          processing. This architecture improves compatibility with broader robotic software systems and
+          makes it easier to integrate tactile sensing into distributed ROS-based workflows.
         </p>
 
         <div class="figure-group" data-fig-indices="2"></div>
       </section>
 
-      <section class="section" id="demo-section">
-        <h2>Demo</h2>
-        <div id="publication-demo"></div>
+      <section class="section">
+        <h2>Conclusion</h2>
+        <p>
+          This work improves the accessibility of ERT-based robotic skin by reducing hardware size and
+          increasing software compatibility with ROS environments. The developed board demonstrates that
+          compact embedded hardware can support real-time ERT sensing while remaining practical for
+          integration into actual robotic platforms, contributing to tactile sensing research for
+          physical human-robot interaction.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>What I Did</h2>
+        <ul class="plain-list">
+          <li>Designed and organized the compact ERT measurement board architecture</li>
+          <li>Worked on the electrode switching and embedded measurement workflow</li>
+          <li>Integrated MCU-based sensing with ROS-compatible communication using \(\mu\)ROS</li>
+          <li>Contributed to real-time measurement validation and system-level integration</li>
+        </ul>
       </section>
 
       <footer id="footer" data-base="../../.."></footer>
