@@ -1,4 +1,5 @@
-function createPublicationCard(publication) {
+function createPublicationCard(publication)
+{
   const article = document.createElement("article");
   article.className = "entry-card";
 
@@ -51,12 +52,14 @@ function createPublicationCard(publication) {
   return article;
 }
 
-function getPublicationCategoryFromUrl() {
+function getPublicationCategoryFromUrl()
+{
   const params = new URLSearchParams(window.location.search);
   return params.get("category");
 }
 
-function createPublicationTypeGroup(title, items) {
+function createPublicationTypeGroup(title, items)
+{
   if (!items || items.length === 0) return null;
 
   const section = document.createElement("section");
@@ -78,7 +81,8 @@ function createPublicationTypeGroup(title, items) {
   return section;
 }
 
-function renderPublicationTypeGroups(container, items) {
+function renderPublicationTypeGroups(container, items)
+{
   if (!container) return;
 
   const conferences = items.filter(item => item.type === "conference");
@@ -91,7 +95,8 @@ function renderPublicationTypeGroups(container, items) {
   if (journalGroup) container.appendChild(journalGroup);
 }
 
-function createPublicationScopeBlock(scopeTitle, items) {
+function createPublicationScopeBlock(scopeTitle, items)
+{
   if (!items || items.length === 0) return null;
 
   const wrapper = document.createElement("section");
@@ -103,12 +108,13 @@ function createPublicationScopeBlock(scopeTitle, items) {
   wrapper.appendChild(heading);
 
   renderPublicationTypeGroups(wrapper, items);
-
   return wrapper;
 }
 
-function renderPublicationPage() {
-  if (typeof publications === "undefined") {
+function renderPublicationPage()
+{
+  if (typeof publications === "undefined")
+  {
     console.error("publications is not defined");
     return;
   }
@@ -122,33 +128,32 @@ function renderPublicationPage() {
 
   container.innerHTML = "";
 
-  if (category === "international") {
-    const filtered = publications.filter(pub => pub.category === "international");
+  let filtered = publications;
+
+  if (category === "international")
+  {
+    filtered = publications.filter(pub => pub.category === "international");
 
     if (titleEl) titleEl.textContent = "International Publications";
-    if (descEl) {
-      descEl.textContent = "International publications grouped by conference and journal.";
-    }
-
+    if (descEl) descEl.textContent = "International publications grouped by conference and journal.";
+    
     renderPublicationTypeGroups(container, filtered);
     return;
   }
-
-  if (category === "domestic") {
-    const filtered = publications.filter(pub => pub.category === "domestic");
+  else if (category === "domestic")
+  {
+    filtered = publications.filter(pub => pub.category === "domestic");
 
     if (titleEl) titleEl.textContent = "Domestic Publications";
-    if (descEl) {
-      descEl.textContent = "Domestic publications grouped by conference and journal.";
-    }
+    if (descEl) descEl.textContent = "Domestic publications grouped by conference and journal.";
 
     renderPublicationTypeGroups(container, filtered);
     return;
   }
-
-  if (titleEl) titleEl.textContent = "Publications";
-  if (descEl) {
-    descEl.textContent = "Domestic and international publications grouped by conference and journal.";
+  else
+  {
+    if (titleEl) titleEl.textContent = "Publications";
+    if (descEl) descEl.textContent = "Domestic and international publications grouped by conference and journal.";
   }
 
   const internationalPubs = publications.filter(pub => pub.category === "international");
@@ -161,18 +166,23 @@ function renderPublicationPage() {
   if (domesticBlock) container.appendChild(domesticBlock);
 }
 
-function renderSelectedPublications() {
-  if (typeof publications === "undefined") return;
+function renderSelectedPublications()
+{
+  if (typeof publications === "undefined")
+  {
+    return;
+  }
 
   const selectedContainer = document.getElementById("selected-publications");
-  if (!selectedContainer) return;
+  if (!selectedContainer)
+  {
+    return;
+  }
 
   selectedContainer.innerHTML = "";
 
   const selectedPublications = publications.filter(pub => pub.selected);
-  selectedPublications.forEach(pub => {
-    selectedContainer.appendChild(createPublicationCard(pub));
-  });
+  selectedPublications.forEach(pub => {selectedContainer.appendChild(createPublicationCard(pub));});
 }
 
 document.addEventListener("DOMContentLoaded", () => {

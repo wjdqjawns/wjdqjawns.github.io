@@ -7,41 +7,51 @@ function createCitationButton() {
   return `<button type="button" class="chip chip-button citation-open">Citation</button>`;
 }
 
-function getYoutubeEmbedUrl(url) {
-  try {
+function getYoutubeEmbedUrl(url)
+{
+  try
+  {
     const parsed = new URL(url);
 
-    if (parsed.hostname.includes("youtube.com")) {
+    if (parsed.hostname.includes("youtube.com"))
+    {
       const videoId = parsed.searchParams.get("v");
       return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
     }
 
-    if (parsed.hostname.includes("youtu.be")) {
+    if (parsed.hostname.includes("youtu.be"))
+    {
       const videoId = parsed.pathname.replace("/", "");
       return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
     }
-  } catch (error) {
+  }
+  catch (error)
+  {
     console.error("Invalid YouTube URL:", url);
   }
 
   return null;
 }
 
-function renderDemo(demo, containerId = "project-demo", sectionId = "demo-section") {
+function renderDemo(demo, containerId = "project-demo", sectionId = "demo-section")
+{
   const container = document.getElementById(containerId);
   const section = document.getElementById(sectionId);
 
   if (!container || !section) return;
 
-  if (!demo || !demo.type || !demo.url) {
+  if (!demo || !demo.type || !demo.url)
+  {
     section.style.display = "none";
     return;
   }
 
-  if (demo.type === "youtube") {
+  if (demo.type === "youtube")
+  {
     const embedUrl = getYoutubeEmbedUrl(demo.url);
 
-    if (!embedUrl) {
+    if (!embedUrl)
+    {
       section.style.display = "none";
       return;
     }
@@ -59,7 +69,8 @@ function renderDemo(demo, containerId = "project-demo", sectionId = "demo-sectio
     return;
   }
 
-  if (demo.type === "local") {
+  if (demo.type === "local")
+  {
     container.innerHTML = `
       <div class="video-wrapper">
         <video controls>
@@ -74,24 +85,33 @@ function renderDemo(demo, containerId = "project-demo", sectionId = "demo-sectio
   section.style.display = "none";
 }
 
-function setImage(id, src, altText = "") {
+function setImage(id, src, altText = "")
+{
   const el = document.getElementById(id);
   if (!el) return;
 
-  if (src) {
+  if (src)
+  {
     el.src = src;
     el.alt = altText;
-  } else {
+  }
+  else
+  {
     const figure = el.closest("figure");
-    if (figure) {
+
+    if (figure)
+    {
       figure.style.display = "none";
-    } else {
+    }
+    else
+    {
       el.style.display = "none";
     }
   }
 }
 
-function ensureCitationModal() {
+function ensureCitationModal()
+{
   if (document.getElementById("citation-modal")) return;
 
   const modal = document.createElement("div");
@@ -107,17 +127,14 @@ function ensureCitationModal() {
       <pre id="citation-modal-body" class="citation-modal-body"></pre>
     </div>
   `;
-
   document.body.appendChild(modal);
 
-  modal.querySelector(".citation-modal-backdrop")
-    .addEventListener("click", closeCitationModal);
-
-  modal.querySelector("#citation-modal-close")
-    .addEventListener("click", closeCitationModal);
+  modal.querySelector(".citation-modal-backdrop").addEventListener("click", closeCitationModal);
+  modal.querySelector("#citation-modal-close").addEventListener("click", closeCitationModal);
 }
 
-function openCitationModal(title, citationText) {
+function openCitationModal(title, citationText)
+{
   ensureCitationModal();
 
   const modal = document.getElementById("citation-modal");
@@ -131,7 +148,8 @@ function openCitationModal(title, citationText) {
   document.body.classList.add("modal-open");
 }
 
-function closeCitationModal() {
+function closeCitationModal()
+{
   const modal = document.getElementById("citation-modal");
   if (!modal) return;
 

@@ -1,8 +1,9 @@
-function createProjectCard(project) {
+function createProjectCard(project)
+{
   const article = document.createElement("article");
   article.className = "entry-card";
 
-  const pageHref = project.page;
+  const pageHref = project.page || "#";
   const codeHref = project.assets?.code || null;
   const paperHref = project.assets?.paper || null;
   const posterHref = project.assets?.poster || null;
@@ -13,14 +14,13 @@ function createProjectCard(project) {
   const metaParts = [
     project.year,
     project.category,
-    project.region
-  ]
+  ].filter(Boolean);
 
   article.innerHTML = `
     <div class="entry-main">
       <div class="entry-headline">
         <h3>
-          <a class="text-link strong" href="${pageHref}">${project.title}</a>
+          <a class="text-link strong" href="${pageHref}">${project.title || ""}</a>
         </h3>
         ${metaParts.length ? `<p class="meta">${metaParts.join(" · ")}</p>` : ""}
       </div>
@@ -32,10 +32,10 @@ function createProjectCard(project) {
       </p>
 
       <div class="link-row">
-        ${createLinkChip("Code", codeHref)}
         ${createLinkChip("Paper", paperHref)}
         ${createLinkChip("Poster", posterHref)}
         ${createLinkChip("Slides", slideHref)}
+        ${createLinkChip("Code", codeHref)}
         ${createLinkChip("Demo", demoHref)}
         ${createCitationButton()}
       </div>
@@ -43,7 +43,8 @@ function createProjectCard(project) {
   `;
 
   const citationBtn = article.querySelector(".citation-open");
-  if (citationBtn) {
+  if (citationBtn)
+  {
     citationBtn.addEventListener("click", () => {
       openCitationModal(project.title, project.citation || "");
     });
@@ -52,22 +53,39 @@ function createProjectCard(project) {
   return article;
 }
 
-function getProjectCategoryFromUrl() {
+function getProjectCategoryFromUrl()
+{
   const params = new URLSearchParams(window.location.search);
   return params.get("category");
 }
 
-function renderProjectCards(container, items) {
-  if (!container) return;
+function createProjectScopeBlock(scopeTitle, items)
+{
+  if (!items || items.length === 0) return null;
 
-  container.innerHTML = "";
+  const wrapper = document.createElement("section");
+  wrapper.className = "prj-scope-block";
+
+  const heading = document.createElement("h2");
+  heading.className = "prj-scope-heading";
+  heading.textContent = scopeTitle;
+  wrapper.appendChild(heading);
+
+  const list = document.createElement("div");
+  list.className = "stack-list";
+
   items.forEach(project => {
-    container.appendChild(createProjectCard(project));
+    list.appendChild(createProjectCard(project));
   });
+
+  wrapper.appendChild(list);
+  return wrapper;
 }
 
-function renderProjectPage() {
-  if (typeof projects === "undefined") {
+function renderProjectPage()
+{
+  if (typeof projects === "undefined")
+  {
     console.error("projects is not defined");
     return;
   }
@@ -76,35 +94,60 @@ function renderProjectPage() {
   if (!container) return;
 
   const category = getProjectCategoryFromUrl();
-  let filteredProjects = projects;
-
   const titleEl = document.getElementById("projects-title");
   const descEl = document.getElementById("projects-description");
+  
+  container.innerHTML = "";
 
-  if (category === "personal") {
-    filteredProjects = projects.filter(project => project.category === "personal");
+  if (category === "personal")
+  {
+    const filtered = projects.filter(prj => prj.category === "personal");
+    
     if (titleEl) titleEl.textContent = "Personal Projects";
     if (descEl) descEl.textContent = "Personal projects with dedicated detail pages.";
-  } else if (category === "team") {
-    filteredProjects = projects.filter(project => project.category === "team");
+    filtered.forEach(prj => container.appendChild(createProjectCard(prj)));
+    return;
+  }
+  else if (category === "team")
+  {
+    const filtered = projects.filter(project => project.category === "team");
+    
     if (titleEl) titleEl.textContent = "Team Projects";
     if (descEl) descEl.textContent = "Team projects with dedicated detail pages.";
-  } else {
-    if (titleEl) titleEl.textContent = "Projects";
-    if (descEl) descEl.textContent = "Personal and team projects with dedicated detail pages.";
+    filtered.forEach(prj => container.appendChild(createProjectCard(prj)));
+    return;
   }
+  
+  if (titleEl) titleEl.textContent = "Projects";
+  if (descEl) descEl.textContent = "Personal and team projects with dedicated detail pages.";
 
-  renderProjectCards(container, filteredProjects);
+  const personalPrjs = projects.filter(prj => prj.category === "personal");
+  const teamPrjs = projects.filter(prj => prj.category === "team");
+
+  const personalBlock = createProjectScopeBlock("Personal", personalPrjs);
+  const teamBlock = createProjectScopeBlock("Team", teamPrjs);
+
+  if (personalBlock) container.appendChild(personalBlock);
+  if (teamBlock) container.appendChild(teamBlock);
 }
 
-function renderSelectedProjects() {
-  if (typeof projects === "undefined") return;
+function renderSelectedProjects()
+{
+  if (typeof projects === "undefined")
+  {
+    return;
+  }
 
   const selectedContainer = document.getElementById("selected-projects");
-  if (!selectedContainer) return;
+  if (!selectedContainer)
+  {
+    return;
+  }
 
-  const selectedProjects = projects.filter(project => project.selected);
-  renderProjectCards(selectedContainer, selectedProjects);
+  selectedContainer.innerHTML = "";
+
+  const selectedProjects = projects.filter(prj => prj.selected);
+  selectedProjects.forEach(prj => {selectedContainer.appendChild(createProjectCard(prj));});
 }
 
 document.addEventListener("DOMContentLoaded", () => {

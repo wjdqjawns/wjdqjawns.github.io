@@ -3,12 +3,14 @@ function normalizePath(path) {
   return path.replace(/\/+/g, "/").replace(/\/$/, "");
 }
 
-function getPublicationById(publicationId) {
+function getPublicationById(publicationId)
+{
   if (typeof publications === "undefined") return null;
   return publications.find(publication => publication.id === publicationId) || null;
 }
 
-function getPublicationByCurrentPath() {
+function getPublicationByCurrentPath()
+{
   if (typeof publications === "undefined") return null;
 
   const currentPath = normalizePath(window.location.pathname);
@@ -19,8 +21,10 @@ function getPublicationByCurrentPath() {
   }) || null;
 }
 
-function renderPublicationDetail(publication) {
-  if (!publication) {
+function renderPublicationDetail(publication)
+{
+  if (!publication)
+    {
     console.error("Publication not found");
     return;
   }
@@ -71,10 +75,12 @@ function renderPublicationDetail(publication) {
   renderDemo(publication.demo, "publication-demo", "demo-section");
 }
 
-function renderPublicationDetailById(publicationId) {
+function renderPublicationDetailById(publicationId)
+{
   const publication = getPublicationById(publicationId);
 
-  if (!publication) {
+  if (!publication)
+  {
     console.error("Publication not found:", publicationId);
     return;
   }
@@ -82,10 +88,12 @@ function renderPublicationDetailById(publicationId) {
   renderPublicationDetail(publication);
 }
 
-function renderPublicationDetailFromCurrentPage() {
+function renderPublicationDetailFromCurrentPage()
+{
   const publication = getPublicationByCurrentPath();
 
-  if (!publication) {
+  if (!publication)
+  {
     console.error("Publication not found for current path:", window.location.pathname);
     return;
   }
@@ -93,21 +101,24 @@ function renderPublicationDetailFromCurrentPage() {
   renderPublicationDetail(publication);
 }
 
-function renderPublicationFigureGroupsById(publicationId) {
+function renderPublicationFigureGroupsById(publicationId)
+{
   const publication = getPublicationById(publicationId);
   if (!publication) return;
 
   renderPublicationFigureGroups(publication);
 }
 
-function renderPublicationFigureGroupsFromCurrentPage() {
+function renderPublicationFigureGroupsFromCurrentPage()
+{
   const publication = getPublicationByCurrentPath();
   if (!publication) return;
 
   renderPublicationFigureGroups(publication);
 }
 
-function renderPublicationFigureGroups(publication) {
+function renderPublicationFigureGroups(publication)
+{
   const figures = publication.assets?.fig || [];
   const captions = publication.assets?.fig_caption || [];
   const groups = document.querySelectorAll(".figure-group");
@@ -119,12 +130,14 @@ function renderPublicationFigureGroups(publication) {
       .map(v => Number(v.trim()))
       .filter(v => Number.isInteger(v) && v >= 0 && v < figures.length);
 
-    if (indices.length === 0) {
+    if (indices.length === 0)
+    {
       group.style.display = "none";
       return;
     }
 
-    if (indices.length === 1) {
+    if (indices.length === 1)
+    {
       const idx = indices[0];
       group.innerHTML = `
         <figure class="figure-block">
@@ -160,7 +173,8 @@ function renderPublicationFigureGroups(publication) {
 
     let current = 0;
 
-    function update(index) {
+    function update(index)
+    {
       current = index;
       const figIndex = indices[index];
 

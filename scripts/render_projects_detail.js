@@ -1,12 +1,15 @@
-function getProjectById(projectId) {
+function getProjectById(projectId)
+{
   if (typeof projects === "undefined") return null;
   return projects.find(project => project.id === projectId) || null;
 }
 
-function renderProjectDetailById(projectId) {
+function renderProjectDetailById(projectId)
+{
   const project = getProjectById(projectId);
 
-  if (!project) {
+  if (!project)
+  {
     console.error("Project not found:", projectId);
     return;
   }
@@ -32,7 +35,8 @@ function renderProjectDetailById(projectId) {
   if (regionEl) regionEl.textContent = project.region || "";
   if (keywordTextEl) keywordTextEl.textContent = (project.keywords || []).join(", ");
 
-  if (linksEl) {
+  if (linksEl)
+  {
     linksEl.innerHTML = [
       createLinkChip("Code", project.assets?.code),
       createLinkChip("Paper", project.assets?.paper),
@@ -43,7 +47,8 @@ function renderProjectDetailById(projectId) {
     ].join("");
 
     const citationBtn = linksEl.querySelector(".citation-open");
-    if (citationBtn) {
+    if (citationBtn)
+    {
       citationBtn.addEventListener("click", () => {
         openCitationModal(project.title, project.citation || "");
       });
@@ -54,7 +59,8 @@ function renderProjectDetailById(projectId) {
   renderDemo(project.demo, "project-demo", "demo-section");
 }
 
-function renderFigureGroups(projectId) {
+function renderFigureGroups(projectId)
+{
   const project = getProjectById(projectId);
   if (!project) return;
 
@@ -69,13 +75,15 @@ function renderFigureGroups(projectId) {
       .map(v => Number(v.trim()))
       .filter(v => Number.isInteger(v) && v >= 0 && v < figures.length);
 
-    if (indices.length === 0) {
+    if (indices.length === 0)
+    {
       group.style.display = "none";
       return;
     }
 
     // single image
-    if (indices.length === 1) {
+    if (indices.length === 1)
+    {
       const idx = indices[0];
       group.innerHTML = `
         <figure class="figure-block">
@@ -112,18 +120,16 @@ function renderFigureGroups(projectId) {
 
     let current = 0;
 
-    function update(index) {
+    function update(index)
+    {
       current = index;
       const figIndex = indices[index];
 
       mainImage.src = figures[figIndex];
       mainImage.alt = `${project.title} figure ${figIndex + 1}`;
-      mainCaption.textContent =
-        captions[figIndex] || `Figure ${String(figIndex + 1).padStart(2, "0")}.`;
+      mainCaption.textContent = captions[figIndex] || `Figure ${String(figIndex + 1).padStart(2, "0")}.`;
 
-      thumbWrap.querySelectorAll(".figure-thumb").forEach((btn, i) => {
-        btn.classList.toggle("active", i === index);
-      });
+      thumbWrap.querySelectorAll(".figure-thumb").forEach((btn, i) => { btn.classList.toggle("active", i === index); });
     }
 
     thumbWrap.innerHTML = indices.map((figIndex, i) => `

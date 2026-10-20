@@ -136,9 +136,36 @@
   font-size: 0.9rem;
 }
 
+/* ===== PROJECT GROUP HIERARCHY ===== */
+.prj-scope-block {
+  margin-top: 1px;
+}
+
+.prj-scope-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 18px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.prj-type-group {
+  margin-top: 22px;
+}
+
+.prj-type-heading {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0 0 14px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
 /* ===== PUBLICATION GROUP HIERARCHY ===== */
 .pub-scope-block {
-  margin-top: 28px;
+  margin-top: 1px;
 }
 
 .pub-scope-heading {
